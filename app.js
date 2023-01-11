@@ -7,6 +7,8 @@ function plus(number) {
     return number + plusNumber;
   };
 }
+// let plus = (number) => (plusNumber) => number + plusNumber;
+// console.log(plus);
 const plus15 = plus(15);
 console.log(plus15(10));
 
@@ -42,18 +44,26 @@ users.forEach((user) => console.log(user.name));
 
 // Exercise 3
 console.log("EXERCISE 3:\n==========\n");
-const mapUsers = users.map(({ name, score }) => console.log({ [name]: score }));
-
+// const mapUsers = users.map(({ name, score }) => console.log({ [name]: score }));
+const mappedUsers = users.map((user) => {
+  return {
+    name: user.name,
+    score: user.score,
+  };
+});
+console.log(mappedUsers);
 // Exercise 4
 console.log("EXERCISE 4:\n==========\n");
-const activeUsers = users.filter(({ name, isActive }) =>
-  console.log({ [name]: isActive })
-);
+// const activeUsers = users.filter(({ name, isActive }) =>
+//   console.log({ [name]: isActive })
+// );
+const activeUsers = users.filter((user) => user.isActive);
+console.log(activeUsers);
 
 // Exercise 5
 console.log("EXERCISE 5:\n==========\n");
-const sortUsers = users.sort((user1, user2) => {
-  return user1.score - user2.score;
+const sortUsers = users.sort((a, b) => {
+  return b.score - a.score;
 });
 console.log(sortUsers);
 
